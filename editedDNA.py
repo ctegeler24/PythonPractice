@@ -29,9 +29,11 @@ DNAlist = [
     '          #{}-{}#',
     '           ##']
 
+# This is the main loop 
 try:
     time.sleep(1)
     while True:
+        # This adds the nucleotides (adenine, cytosine, guanine and tyrosine) to the above list in random order
         randomSelection = random.randint(1,4)
         if randomSelection == 1:
             leftSelection, rightSelection = 'A','T'
@@ -41,9 +43,10 @@ try:
             leftSelection, rightSelection = 'C','G'
         elif randomSelection == 4:
             leftSelection, rightSelection = 'G','C'
-
+        # This for loop is to continue the animation until Ctrl-C is pressed
         for x in DNAlist:
             print(x.format(leftSelection,rightSelection))
+            # time.sleep is added to slow down the animation
             time.sleep(pause)
         
 except KeyboardInterrupt:
